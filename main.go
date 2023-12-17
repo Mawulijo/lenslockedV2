@@ -6,7 +6,7 @@ import (
 )
 
 func handlerFunc(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprint(w, "<h1>Welcome to version 2 of lenslocked</h1>")
+	fmt.Fprint(w, "<h1>Welcome to version 2 of the great lenslocked</h1>")
 }
 
 func main() {
