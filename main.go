@@ -2,13 +2,24 @@ package main
 
 import (
 	"fmt"
+	"html/template"
 	"net/http"
+	"path/filepath"
 
 	"github.com/go-chi/chi/v5"
 )
 
 func homeHandler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprint(w, "<h1>Welcome to version 2 of the great lenslocked</h1>")
+	w.Header().Set("Content-Type", "text/html; chaset=utf-8")
+	tplPath := filepath.Join("templates", "home.gohtml")
+	tpl, err := template.ParseFiles(tplPath)
+	if err != nil {
+		panic(err) //TODO: Remove the panic
+	}
+	err = tpl.Execute(w, nil)
+	if err != nil {
+		panic(err) //TODO: Remove the panic
+	}
 }
 func contactHandler(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprint(w, "<h1>Contact us at <a href=\"mailto:support@lenslocked.com\">support@lenslocked.com</a></h1>")
