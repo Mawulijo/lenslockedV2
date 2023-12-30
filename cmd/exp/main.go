@@ -9,6 +9,7 @@ type User struct {
 	Name string
 	Bio  string
 	Age  int
+	Meta UserMeta
 }
 type UserMeta struct {
 	Visits int
@@ -20,9 +21,12 @@ func main() {
 		panic(err)
 	}
 	user := User{
-		Name: "Joshua Agbeku",
+		Name: "Joshua Mawuli Agbeku",
 		Bio:  `<script>alert(haha, you have been h4x0r3d!);</script>`,
 		Age:  33,
+		Meta: UserMeta{
+			Visits: 5,
+		},
 	}
 	// OR
 	// user := struct {
