@@ -1,7 +1,10 @@
-<h1>Hello, {{.Name}}</h1>
+{{if .Name }}
+    <h1>Hello, {{.Name}}</h1>
+{{else}}
+    <p>Joshua Agbeku</p>
+{{end}}
 <h1>{{.Bio}}</h1>
-<h1>{{.Age}}</h1>
-
+<h1>{{.Meta.Visits}}</h1>
 
 
 <script>
